@@ -212,6 +212,7 @@ section{position:relative}
 .sello-naranja{background:#EA580C}
 .sello-morado{background:#7C3AED}
 .planes-cta{display:none}
+.planes-nota{margin-top:24px;text-align:center;font-size:.95rem;color:var(--gris)}
 
 /* Acceso (login) */
 .acceso{padding:0 0 110px}
@@ -455,7 +456,7 @@ dialog::backdrop{background:rgba(10,15,26,.55);backdrop-filter:blur(3px)}
         <h3 style="margin-top:18px">Mensual</h3>
         <div class="precio">$99 <small>/mes</small></div>
         <p class="nota">El más económico del mercado. Sin compromisos.</p>
-        <a href="https://buy.stripe.com/test_cNifZh6uZ7Q78Ni5mobQY04" target="_blank" rel="noopener" class="btn btn-azul-min">Elegir plan</a>
+        <a href="#contacto" class="btn btn-azul-min js-plan">Elegir plan</a>
       </div>
 
       <!-- Trimestral -->
@@ -464,7 +465,7 @@ dialog::backdrop{background:rgba(10,15,26,.55);backdrop-filter:blur(3px)}
         <h3 style="margin-top:18px">Trimestral</h3>
         <div class="precio">$229 <small>/3 meses</small></div>
         <p class="nota">Ahorra $68 frente al pago mensual.</p>
-        <a href="https://buy.stripe.com/test_00w28r1aFfiz2oU168bQY01" target="_blank" rel="noopener" class="btn btn-azul-min">Elegir plan</a>
+        <a href="#contacto" class="btn btn-azul-min js-plan">Elegir plan</a>
       </div>
 
       <!-- Semestral -->
@@ -473,7 +474,7 @@ dialog::backdrop{background:rgba(10,15,26,.55);backdrop-filter:blur(3px)}
         <h3 style="margin-top:18px">Semestral</h3>
         <div class="precio">$399 <small>/6 meses</small></div>
         <p class="nota">Ahorra $195 frente al pago mensual.</p>
-        <a href="https://buy.stripe.com/test_9B67sLdXr2vN5B6168bQY02" target="_blank" rel="noopener" class="btn btn-azul-min">Elegir plan</a>
+        <a href="#contacto" class="btn btn-azul-min js-plan">Elegir plan</a>
       </div>
 
       <!-- Anual — badge azul MÁS CONVENIENTE -->
@@ -482,9 +483,10 @@ dialog::backdrop{background:rgba(10,15,26,.55);backdrop-filter:blur(3px)}
         <h3 style="margin-top:18px">Anual</h3>
         <div class="precio">$599 <small>/año</small></div>
         <p class="nota">Ahorra $589 — el mejor precio del año.</p>
-        <a href="https://buy.stripe.com/test_5kQ7sL5qV1rJ9RmcOQbQY03" target="_blank" rel="noopener" class="btn btn-blanco-plan">Elegir plan</a>
+        <a href="#contacto" class="btn btn-blanco-plan js-plan">Elegir plan</a>
       </div>
     </div>
+    <p class="planes-nota">Pago por transferencia bancaria. Al elegir tu plan te enviamos los datos por WhatsApp y activamos tu cuenta el mismo día.</p>
     <div class="planes-cta"></div>
   </div>
 </section>
@@ -573,6 +575,8 @@ dialog::backdrop{background:rgba(10,15,26,.55);backdrop-filter:blur(3px)}
     <div class="foot-base">
       <span>© <span id="anio"></span> TuLavandería. Todos los derechos reservados.</span>
       <button class="linkbtn" id="abrirAviso">Aviso de privacidad</button>
+      <button class="linkbtn" id="abrirTerminos">Términos y condiciones</button>
+      <button class="linkbtn" id="abrirCancelacion">Cancelación y reembolsos</button>
     </div>
   </div>
 </footer>
@@ -603,6 +607,85 @@ dialog::backdrop{background:rgba(10,15,26,.55);backdrop-filter:blur(3px)}
 
     <p style="font-size:.8rem;color:var(--gris)">Última actualización: 18 de septiembre de 2026</p>
     <button class="btn btn-negro" id="cerrarAviso" style="justify-self:start">Entendido</button>
+  </div>
+</dialog>
+
+<dialog id="terminos">
+  <div class="modal">
+    <h3>Términos y Condiciones</h3>
+    <p>Estos términos regulan el uso de <strong>TuLavandería</strong>, el software de administración para lavanderías, tintorerías y planchadurías que se ofrece desde <strong>tulavanderia.com.mx</strong>, con domicilio en San Luis Potosí, S.L.P., México. Al contratar o usar el servicio, usted acepta lo aquí descrito.</p>
+
+    <p><strong>1. Qué incluye el servicio</strong><br>
+    TuLavandería es un software en la nube al que se accede por internet desde un navegador. Incluye registro de notas y clientes, control de caja, catálogo de precios, avisos por WhatsApp, reportes y respaldo de su información. No se requiere instalar nada ni contratar equipo adicional.</p>
+
+    <p><strong>2. Su cuenta</strong><br>
+    Usted es responsable de su contraseña y de las personas a quienes dé acceso. Por seguridad, la licencia permite un equipo activo a la vez. Avísenos de inmediato si sospecha que alguien más entró a su cuenta.</p>
+
+    <p><strong>3. Planes y pagos</strong><br>
+    Los precios se muestran en pesos mexicanos y se cobran por adelantado según el plan elegido: mensual, trimestral, semestral o anual. El pago se realiza por transferencia bancaria; al elegir su plan le enviamos los datos por WhatsApp y activamos su cuenta el mismo día. Si requiere factura, solicítela a nuestro correo de contacto.</p>
+
+    <p><strong>4. Renovación</strong><br>
+    No hacemos cargos automáticos. Unos días antes de que termine su periodo le avisamos por WhatsApp para que decida si continúa. Si no renueva, el servicio simplemente termina en la fecha de vencimiento y sus datos se conservan según lo indicado en la política de cancelación.</p>
+
+    <p><strong>5. Prueba gratuita</strong><br>
+    Ofrecemos 7 días de prueba sin costo y sin tarjeta, previa solicitud. La prueba termina automáticamente al cumplirse el plazo y no genera ningún cobro. Nos reservamos el derecho de otorgarla una sola vez por negocio.</p>
+
+    <p><strong>6. Falta de pago</strong><br>
+    Si un cobro no se completa, el acceso se suspende hasta regularizar el pago. Su información se conserva durante los 60 días siguientes para que pueda recuperarla al reactivar el servicio.</p>
+
+    <p><strong>7. Su información es suya</strong><br>
+    Los datos que usted captura (clientes, notas, precios, ventas) le pertenecen. Puede descargar un respaldo desde el sistema en cualquier momento. Nosotros solo los tratamos para operar el servicio y nunca los vendemos ni los usamos para otros fines.</p>
+
+    <p><strong>8. Los datos de sus clientes</strong><br>
+    Al registrar a sus propios clientes en el sistema, usted es el responsable de esos datos personales frente a ellos y frente a la ley. TuLavandería actúa únicamente como encargado del tratamiento, por instrucción suya. Usted se compromete a usar el envío de mensajes conforme a la ley y a respetar a quien pida no recibirlos.</p>
+
+    <p><strong>9. Disponibilidad</strong><br>
+    Trabajamos para que el servicio esté disponible todo el tiempo, pero puede haber interrupciones por mantenimiento, fallas de internet o de nuestros proveedores. No garantizamos disponibilidad ininterrumpida ni nos hacemos responsables por pérdidas derivadas de interrupciones ajenas a nuestro control. Por eso recomendamos descargar respaldos con regularidad.</p>
+
+    <p><strong>10. Uso adecuado</strong><br>
+    No está permitido revender el acceso, compartir la licencia con otros negocios, intentar vulnerar el sistema ni usarlo para fines ilícitos. El incumplimiento puede causar la suspensión de la cuenta sin reembolso.</p>
+
+    <p><strong>11. Cambios de precio o de términos</strong><br>
+    Podemos ajustar precios o estos términos avisándole con al menos 30 días de anticipación al correo registrado. Si no está de acuerdo, puede cancelar antes de que el cambio entre en vigor.</p>
+
+    <p><strong>12. Ley aplicable</strong><br>
+    Estos términos se rigen por las leyes de los Estados Unidos Mexicanos. Para cualquier controversia, las partes se someten a los tribunales de San Luis Potosí, S.L.P., sin perjuicio de que usted acuda a la PROFECO.</p>
+
+    <p><strong>Contacto</strong><br>
+    <a href="mailto:tulavanderiaslp@gmail.com" style="color:var(--azul)">tulavanderiaslp@gmail.com</a> · WhatsApp 444 364 4585</p>
+
+    <p style="font-size:.8rem;color:var(--gris)">Última actualización: 19 de septiembre de 2026</p>
+    <button class="btn btn-negro" id="cerrarTerminos" style="justify-self:start">Entendido</button>
+  </div>
+</dialog>
+
+<dialog id="cancelacion">
+  <div class="modal">
+    <h3>Política de Cancelación y Reembolsos</h3>
+    <p>Queremos que se quede con nosotros porque el sistema le sirve, no porque sea difícil salirse.</p>
+
+    <p><strong>Cancelar cuando quiera</strong><br>
+    No hay plazos forzosos ni penalizaciones, y tampoco cargos automáticos: usted paga por transferencia solo el periodo que decide contratar. Si no quiere continuar, basta con no renovar; si prefiere avisarnos, escríbanos por WhatsApp al 444 364 4585 o a <a href="mailto:tulavanderiaslp@gmail.com" style="color:var(--azul)">tulavanderiaslp@gmail.com</a>.</p>
+
+    <p><strong>Qué pasa al cancelar</strong><br>
+    Su servicio sigue funcionando hasta el último día del periodo que ya pagó. No se corta el acceso el día que avisa.</p>
+
+    <p><strong>Reembolsos</strong><br>
+    Si acaba de contratar y no le convenció, le devolvemos el 100% siempre que lo solicite dentro de los <strong>7 días naturales</strong> posteriores a su pago. Después de ese plazo no se reembolsan periodos ya iniciados; lo que puede hacer es no renovar al terminar.</p>
+
+    <p>Los reembolsos se devuelven por transferencia a la cuenta desde la que pagó, dentro de los 3 días hábiles siguientes a su solicitud.</p>
+
+    <p><strong>Cobros duplicados o por error</strong><br>
+    Si detecta un cobro que no reconoce o que se repitió, avísenos y se lo devolvemos completo, sin importar la fecha.</p>
+
+    <p><strong>Su información después de cancelar</strong><br>
+    Conservamos sus datos <strong>60 días</strong> por si decide regresar. Durante ese tiempo puede pedirnos un respaldo completo de sus clientes, notas y ventas. Pasado ese plazo se eliminan de forma definitiva. Si prefiere que los borremos antes, solo pídalo.</p>
+
+    <p><strong>Prueba gratuita</strong><br>
+    Los 7 días de prueba no generan ningún cobro y no requieren tarjeta. Al terminar, si no contrata un plan, la cuenta simplemente deja de estar activa.</p>
+
+    <p style="font-size:.8rem;color:var(--gris)">Última actualización: 19 de septiembre de 2026</p>
+    <button class="btn btn-negro" id="cerrarCancelacion" style="justify-self:start">Entendido</button>
   </div>
 </dialog>
 
@@ -663,7 +746,16 @@ const ioNum = new IntersectionObserver(entries => entries.forEach(e => {
 }), { threshold: .6 });
 document.querySelectorAll("[data-contar]").forEach(el => ioNum.observe(el));
 
-/* Los planes tienen su propio botón — no necesita lógica extra */
+/* Cada plan abre WhatsApp pidiendo los datos para la transferencia */
+document.querySelectorAll(".plan").forEach(tarjeta => {
+  const boton = tarjeta.querySelector(".js-plan");
+  if (!boton) return;
+  const plan = tarjeta.dataset.plan;
+  const precio = tarjeta.querySelector(".precio").textContent.replace(/\s+/g, " ").trim();
+  boton.href = waLink(`Hola, quiero contratar el plan ${plan} de Tulavanderia (${precio}). ¿Me pasas los datos para la transferencia?`);
+  boton.target = "_blank";
+  boton.rel = "noopener";
+});
 
 /* Formulario → WhatsApp con mensaje prellenado */
 const formDemo = document.getElementById("formDemo");
@@ -695,10 +787,14 @@ formDemo.addEventListener("submit", ev => {
   window.open(waLink(msg), "_blank", "noopener");
 });
 
-/* Aviso de privacidad */
-const aviso = document.getElementById("aviso");
-document.getElementById("abrirAviso").onclick = () => aviso.showModal();
-document.getElementById("cerrarAviso").onclick = () => aviso.close();
+/* Ventanas legales */
+[["abrirAviso", "aviso", "cerrarAviso"],
+ ["abrirTerminos", "terminos", "cerrarTerminos"],
+ ["abrirCancelacion", "cancelacion", "cerrarCancelacion"]].forEach(([abrir, dlg, cerrar]) => {
+  const d = document.getElementById(dlg);
+  document.getElementById(abrir).onclick = () => d.showModal();
+  document.getElementById(cerrar).onclick = () => d.close();
+});
 
 /* ===== Firma: fondo de burbujas de jabón interactivo ===== */
 (() => {

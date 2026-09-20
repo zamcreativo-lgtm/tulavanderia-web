@@ -66,7 +66,43 @@ memorizar.
 
 ---
 
-## 4. Si algo salió mal
+## 4. Tu flujo de venta (solo para ti)
+
+Cuando alguien quiere contratar:
+
+1. **Te llega el WhatsApp** con el plan que eligió, desde la página.
+2. **Le pasas tu CLABE** para que haga la transferencia.
+3. **Él te manda el comprobante** por WhatsApp. No avances hasta verlo reflejado
+   en tu cuenta: la transferencia entre bancos distintos puede tardar unos minutos.
+4. **Le creas la cuenta** en Supabase: Authentication → Users → **Add user**, con su
+   correo y una contraseña temporal. Marca que el correo quede confirmado.
+5. **Le activas la licencia** en Table Editor → `licencias`, o con esto en el SQL
+   Editor, cambiando el correo y los días según el plan que pagó:
+
+       update public.licencias
+       set estado = 'activa', plan = 'mensual',
+           vence_el = now() + interval '30 days'
+       where user_id = (select id from auth.users where email = 'cliente@correo.com');
+
+   Para los otros planes: 90 días el trimestral, 180 el semestral, 365 el anual.
+   Para una prueba gratis, 7 días con `plan = 'prueba'`.
+
+6. **Le mandas sus accesos** por WhatsApp y le dices que cambie su contraseña
+   dentro del sistema, en Configuración ⚙️.
+
+Para ver cómo va cada cliente y quién está por vencer:
+
+    select u.email, l.estado, l.plan, l.vence_el
+    from public.licencias l
+    join auth.users u on u.id = l.user_id
+    order by l.vence_el;
+
+**Ojo:** los clientes no pueden registrarse solos. El botón "Ver planes" del login
+los manda a la página, y sin que tú los des de alta no hay manera de entrar.
+
+---
+
+## 5. Si algo salió mal
 
 **El sitio se ve roto o falta algo:** en Cloudflare, entra al Worker
 `tulavanderia`, sección de implementaciones, y regresa a una anterior. Tarda
@@ -80,7 +116,7 @@ Cloudflare que la compilación haya terminado bien.
 
 ---
 
-## 5. Dónde está cada cosa
+## 6. Dónde está cada cosa
 
 | Qué | Dónde |
 |---|---|
@@ -97,7 +133,7 @@ Cloudflare que la compilación haya terminado bien.
 
 ---
 
-## 6. Si prefieres botones en vez de comandos
+## 7. Si prefieres botones en vez de comandos
 
 Existe **GitHub Desktop**, un programa gratuito con botones: escribes qué
 cambiaste y le das clic a "Push". Sirve para cuando edites archivos en tu
@@ -105,7 +141,7 @@ computadora sin querer usar la terminal.
 
 ---
 
-## 7. Los comandos, solo si hacen falta
+## 8. Los comandos, solo si hacen falta
 
 Desde la carpeta `Escritorio\tulavanderia-web` (atajo: escribe `cmd` en la barra
 de direcciones del explorador):

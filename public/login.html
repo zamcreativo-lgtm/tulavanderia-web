@@ -167,7 +167,7 @@
       <div style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 13px">
         <a href="https://tulavanderia.com.mx/#contacto" target="_blank" rel="noopener" style="color: #2B7FFF">¿Olvidó sus datos?</a>
         <span style="color: #C7CDD1">|</span>
-        <button sc-camel-on-click="{{ irASuscripciones }}" style="background: none; border: none; font-size: 13px; font-weight: 500; color: #2B7FFF; cursor: pointer; padding: 0">¿No tienes cuenta? Regístrate</button>
+        <a href="https://tulavanderia.com.mx/#planes" style="font-size: 13px; font-weight: 500; color: #2B7FFF; text-decoration: none">¿No tienes cuenta? Ver planes</a>
       </div>
     </div>
   </div>
@@ -189,7 +189,7 @@
     <div style="width: 400px; background: #FFFBF6; border-radius: 24px; padding: 44px 38px; display: flex; flex-direction: column; gap: 14px; text-align: center; align-items: center; box-shadow: 0 40px 80px -30px rgba(0,0,0,.45), 0 0 0 1px rgba(0,0,0,.03)">
       <div style="width: 70px; height: 70px; border-radius: 50%; display: grid; place-items: center; font-size: 26px; background: linear-gradient(150deg, #5B9BFF, #1B3E9C); box-shadow: 0 10px 24px -8px rgba(14,124,134,.4)">✨</div>
       <span style="font-size: 16px; font-weight: 800; color: #231B12">Elige tu suscripción</span>
-      <span style="font-size: 13px; color: #6B7378; line-height: 1.5">Selecciona un plan y paga para crear tu cuenta. Recibirás tu usuario y contraseña por correo.</span>
+      <span style="font-size: 13px; color: #6B7378; line-height: 1.5">Elige tu plan en la página y pídenos los datos para la transferencia. Activamos tu cuenta el mismo día que confirmemos el pago.</span>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; width: 100%">
         <sc-for list="{{ planes }}" as="p" hint-placeholder-count="4">
           <button sc-camel-on-click="{{ p.elegir }}" style="{{ p.style }}">
@@ -199,7 +199,7 @@
           </button>
         </sc-for>
       </div>
-      <a href="{{ stripeLink }}" target="_blank" rel="noopener" style="width: 100%; height: 42px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 12.5px; font-weight: 800; letter-spacing: 0.05em; color: #fff; text-decoration: none; background: #0E7C86">PAGAR Y CREAR CUENTA</a>
+      <a href="{{ stripeLink }}" target="_blank" rel="noopener" style="width: 100%; height: 42px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 12.5px; font-weight: 800; letter-spacing: 0.05em; color: #fff; text-decoration: none; background: #0E7C86">VER PLANES Y CONTRATAR</a>
       <button sc-camel-on-click="{{ cerrarPlanesPublico }}" style="width: 100%; height: 40px; border: 1px solid #DCE1E4; background: #fff; border-radius: 8px; font-size: 12.5px; font-weight: 700; color: #4A5257; cursor: pointer">REGRESAR</button>
     </div>
   </div>
@@ -220,7 +220,7 @@
           </button>
         </sc-for>
       </div>
-      <a href="{{ stripeLink }}" target="_blank" rel="noopener" style="width: 100%; height: 42px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 12.5px; font-weight: 800; letter-spacing: 0.05em; color: #fff; text-decoration: none; background: #0E7C86">PAGAR / RENOVAR SUSCRIPCIÓN</a>
+      <a href="{{ stripeLink }}" target="_blank" rel="noopener" style="width: 100%; height: 42px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 12.5px; font-weight: 800; letter-spacing: 0.05em; color: #fff; text-decoration: none; background: #0E7C86">VER PLANES Y RENOVAR</a>
       <button sc-camel-on-click="{{ revisarLicencia }}" style="width: 100%; height: 40px; border: 1px solid #DCE1E4; background: #fff; border-radius: 8px; font-size: 12.5px; font-weight: 700; color: #4A5257; cursor: pointer">YA PAGUÉ, VERIFICAR DE NUEVO</button>
       <button sc-camel-on-click="{{ cerrarSesion }}" style="width: 100%; height: 40px; border: 1px solid #DCE1E4; background: #fff; border-radius: 8px; font-size: 12.5px; font-weight: 700; color: #4A5257; cursor: pointer">CERRAR SESIÓN</button>
     </div>
@@ -1418,12 +1418,12 @@ const NOTAS_EJEMPLO = [
   { folio: 1000, cliente: 'CLIENTE EJEMPLO', tel: '000 000 0001', dir: '', mail: '', etiqueta: 'A-001', kilos: 3, prendas: '', items: [], entrega: '', recibo: '', express: false, recoleccion: false, iva: false, pago: 'Efectivo', total: 120, anticipo: 120, saldo: 0, estado: 'Recibido', pagado: true, cancelada: false, suc: 'Centro', obs: '' }
 ];
 const AUTO_DEMO = false;
-const STRIPE_LINK = 'https://buy.stripe.com/test_cNifZh6uZ7Q78Ni5mobQY04';
+const LINK_PLANES = 'https://tulavanderia.com.mx/#planes';
 const PLANES = [
-  { id: 'mensual', label: 'MENSUAL', precio: 99, sufijo: '/mes', link: STRIPE_LINK },
-  { id: 'trimestral', label: 'TRIMESTRAL', precio: 229, sufijo: '/3 meses', link: 'https://buy.stripe.com/test_00w28r1aFfiz2oU168bQY01' },
-  { id: 'semestral', label: 'SEMESTRAL', precio: 399, sufijo: '/6 meses', link: 'https://buy.stripe.com/test_9B67sLdXr2vN5B6168bQY02' },
-  { id: 'anual', label: 'ANUAL', precio: 599, sufijo: '/año', link: 'https://buy.stripe.com/test_5kQ7sL5qV1rJ9RmcOQbQY03' }
+  { id: 'mensual', label: 'MENSUAL', precio: 99, sufijo: '/mes', link: LINK_PLANES },
+  { id: 'trimestral', label: 'TRIMESTRAL', precio: 229, sufijo: '/3 meses', link: LINK_PLANES },
+  { id: 'semestral', label: 'SEMESTRAL', precio: 399, sufijo: '/6 meses', link: LINK_PLANES },
+  { id: 'anual', label: 'ANUAL', precio: 599, sufijo: '/año', link: LINK_PLANES }
 ];
 const AYUDA = {
   mostrador: [
